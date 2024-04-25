@@ -345,8 +345,8 @@ public class OpenMetadataApplication extends Application<OpenMetadataApplication
   private void registerAssetServlet(OMWebConfiguration webConfiguration, Environment environment) {
     // Handle Asset Using Servlet
     OpenMetadataAssetServlet assetServlet =
-        new OpenMetadataAssetServlet("/assets", "/", "index.html", webConfiguration);
-    String pathPattern = "/" + '*';
+        new OpenMetadataAssetServlet("/assets", "/omd", "index.html", webConfiguration);
+    String pathPattern = "/omd/" + '*';
     environment.servlets().addServlet("static", assetServlet).addMapping(pathPattern);
   }
 
