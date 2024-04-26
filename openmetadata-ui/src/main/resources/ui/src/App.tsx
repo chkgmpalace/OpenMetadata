@@ -15,7 +15,7 @@ import { isEmpty } from 'lodash';
 import React, { FC, useEffect } from 'react';
 import { HelmetProvider } from 'react-helmet-async';
 import { I18nextProvider } from 'react-i18next';
-import { HashRouter, Router } from 'react-router-dom';
+import { Router } from 'react-router-dom';
 import { ToastContainer } from 'react-toastify';
 import 'react-toastify/dist/ReactToastify.min.css';
 import AppRouter from './components/AppRouter/AppRouter';
@@ -84,9 +84,7 @@ const App: FC = () => {
                               <ApplicationsProvider>
                                 <DomainProvider>
                                   <EntityExportModalProvider>
-                                    <HashRouter basename='/omd' >
-                                      <AppRouter />
-                                    </HashRouter>
+                                    <AppRouter />
                                   </EntityExportModalProvider>
                                 </DomainProvider>
                               </ApplicationsProvider>
