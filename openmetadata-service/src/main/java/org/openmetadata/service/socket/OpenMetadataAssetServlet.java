@@ -39,7 +39,8 @@ public class OpenMetadataAssetServlet extends AssetServlet {
     setSecurityHeader(webConfiguration, resp);
     super.doGet(req, resp);
     if (!resp.isCommitted() && (resp.getStatus() == 404)) {
-      resp.sendError(404);
+      RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/omd/");
+      dispatcher.forward(req, resp);
     }
   }
 }
