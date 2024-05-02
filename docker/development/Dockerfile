@@ -12,7 +12,7 @@
 # Build stage
 FROM alpine:3.19 AS build
 
-COPY openmetadata-dist/target/openmetadata-*.tar.gz /
+COPY openmetadata-*.tar.gz /
 
 RUN mkdir -p /opt/openmetadata && \
     tar zxvf openmetadata-*.tar.gz -C /opt/openmetadata --strip-components 1 && \
@@ -29,7 +29,7 @@ RUN adduser -D openmetadata && \
     apk add --update --no-cache bash openjdk17-jre
 
 COPY --chown=openmetadata:openmetadata --from=build /opt/openmetadata /opt/openmetadata
-COPY --chmod=755 docker/openmetadata-start.sh /
+COPY --chmod=755 openmetadata-start.sh /
 
 USER openmetadata
 
