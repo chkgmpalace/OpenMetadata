@@ -18,6 +18,8 @@ import static org.openmetadata.service.exception.OMErrorPageHandler.setSecurityH
 import io.dropwizard.servlets.assets.AssetServlet;
 import java.io.IOException;
 import java.nio.charset.StandardCharsets;
+
+import javax.servlet.RequestDispatcher;
 import javax.servlet.ServletException;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
@@ -39,7 +41,8 @@ public class OpenMetadataAssetServlet extends AssetServlet {
     setSecurityHeader(webConfiguration, resp);
     super.doGet(req, resp);
     if (!resp.isCommitted() && (resp.getStatus() == 404)) {
-      resp.sendError(404);
+      RequestDispatcher dispatcher = getServletContext().getRequestDispatcher("/omd/");
+      dispatcher.forward(req, resp);
     }
   }
 }

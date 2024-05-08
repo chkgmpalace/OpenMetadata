@@ -19,7 +19,7 @@ from airflow.models import DagModel
 from flask import escape
 from jinja2 import Template
 from openmetadata_managed_apis.api.config import (
-    AIRFLOW_DAGS_FOLDER,
+    AIRFLOW_DAGS_FOLDER_OMD,
     DAG_GENERATED_CONFIGS,
     PLUGIN_NAME,
 )
@@ -85,7 +85,7 @@ class DagDeployer:
         the rendered strings
         """
 
-        dag_py_file = Path(AIRFLOW_DAGS_FOLDER) / f"{self.dag_id}.py"
+        dag_py_file = Path(AIRFLOW_DAGS_FOLDER_OMD) / f"{self.dag_id}.py"
 
         # Open the template and render
         raw_template = pkgutil.get_data(PLUGIN_NAME, "resources/dag_runner.j2").decode()

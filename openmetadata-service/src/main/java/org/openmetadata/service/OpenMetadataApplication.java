@@ -238,8 +238,8 @@ public class OpenMetadataApplication extends Application<OpenMetadataApplication
     // Handle Asset Using Servlet
     OpenMetadataAssetServlet assetServlet =
         new OpenMetadataAssetServlet(
-            "/assets", "/", "index.html", catalogConfig.getWebConfiguration());
-    String pathPattern = "/" + '*';
+            "/assets", "/omd", "index.html", catalogConfig.getWebConfiguration());
+    String pathPattern = "/omd/" + '*';
     environment.servlets().addServlet("static", assetServlet).addMapping(pathPattern);
 
     // Handle Pipeline Service Client Status job

@@ -1,6 +1,7 @@
 {
   "name": "open-metadata",
   "version": "0.1.0",
+  "homepage": "/omd/",
   "private": true,
   "engines": {
     "node": ">=10.0.0",

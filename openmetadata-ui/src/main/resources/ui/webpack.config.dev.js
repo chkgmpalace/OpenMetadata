@@ -34,7 +34,7 @@ module.exports = {
     path: outputPath,
     filename: '[name].js',
     chunkFilename: '[name].js',
-    publicPath: '/', // Ensures bundle is served from absolute path as opposed to relative
+    publicPath: '/omd/', // Ensures bundle is served from absolute path as opposed to relative
   },
 
   // Loaders
@@ -253,7 +253,7 @@ module.exports = {
     // Proxy configuration
     proxy: [
       {
-        context: '/api',
+        context: '/omd/api',
         target: 'http://localhost:8585/',
         changeOrigin: true,
       },
