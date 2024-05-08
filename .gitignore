@@ -23,6 +23,7 @@ buildNumber.properties
 .mvn/timing.properties
 
 catalog-services/catalog-services.iml
+*.tar.gz
 
 # local docker volume
 docker/development/docker-volume
